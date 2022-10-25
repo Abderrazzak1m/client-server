@@ -1,0 +1,26 @@
+[
+    {
+        "id": "a0001-11",
+        "name": "Antique Vase",
+        "description": "Unearthed in the South Pole last May. Unknown civilization. Mint condition!",
+        "lastBid": 12.00,
+        "lastBidUser": null,
+        "imageUrl": "http://localhost:3000/images/a0001-11.jpg"
+    },
+    {
+        "id": "b0002-22",
+        "name": "Viking Battle Helmet",
+        "description": "Dated in the 900's. Comes with a certificate of authenticity.",
+        "lastBid": 50.00,
+        "lastBidUser": null,
+        "imageUrl": "http://localhost:3000/images/b0002-22.jpg"
+    },
+    {
+        "id": "c0003-33",
+        "name": "Dynasty Scroll",
+        "description": "Story of an epic journey, a rare find!",
+        "lastBid": 70.00,
+        "lastBidUser": null,
+        "imageUrl": "http://localhost:3000/images/c0003-33.jpg" 
+    }     
+]

@@ -1,0 +1,97 @@
+<!doctype html>
+
+<!-- Web page "Treasure Trove"          -->
+<!-- Created by Harrison Kong           -->
+<!-- Copyright (C) Coursera 2021        -->
+
+<html lang="en">
+
+<header>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv=“Pragma” content=”no-cache”>
+<meta http-equiv=“Expires” content=”-1″>
+<meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+<!-- CSS Stylesheets -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="css/master.css">
+
+<title>Treasure Trove</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>    
+<script src="js/treasuretrove.js"></script>
+</header>
+
+<body ng-app="treasureTrove" ng-controller="mainController as ctrl">
+
+<h1>Treasure Trove</h1>
+<p class="login-info">Logged in as Linda Mar (lindam@somewhere.com)</p>
+
+<div class='outer-div'>
+
+    <table class="page-frame">
+        <colgroup>
+            <col width="80%"><col width="20%">
+        </colgroup>
+        <tbody>
+        <tr>
+            <!-- merchanise side --------------------------------------------------->
+            <td class="merchandise-side">
+                <!-- merchandise list -->
+                <table class="merchandise-table" id="merchandise-table">
+                    <colgroup>
+                        <col width="20%"><col width="80%">
+                    </colgroup>
+                    <tbody>
+                        <!-- rows of merchandise -->
+                        <tr ng-repeat="item in inventory">
+                            <td class="merchandise-image">
+                                <img class="merchandise-image" src="{{ item.imageUrl }}" alt="item image">
+                            </td>
+                            <td>
+                                <p class="merchandise-name">{{ item.name }}</p>
+                                <hr class="merchandise-hr">
+                                <p class="merchandise-description">{{ item.description }}</p>
+                                <p class="merchandise-last-bid" ng-if="item.lastBidUser == null">Opening bid: {{ item.lastBid | currency }}</p>
+                                <p class="merchandise-last-bid" ng-if="item.lastBidUser != null">Last bid: {{ item.lastBid | currency }} by {{ item.lastBidUser }}</p>
+                                <p>Your bid: <input ng-model="newBids[$index]" type="number" length="5" value="newBids[$index]"><a href="#" ng-click="sendBid(item.id, newBids[$index], 'lindam')"><img class="floating-button" src="images/bid-button.png" alt="add"></a></p>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </td>
+
+            <!-- advertisement side --------------------------------------------------->
+            <td class="advertisement-side">
+
+                <table class="advertisement-table">
+                    <tr class="advertisement-header-row"> <!-- advertisement header -->
+                        <td>
+                            <span class="advertisement-big-text">Messages from our Sponsors</span>     
+                        </td>
+                    </tr>
+
+                    <tr> <!-- advertisement item -->
+                        <td class="advertisement-item">
+                            <a href="https://www.coursera.org/projects/become-a-js-pro-7-skills" target="_blank"><img width="100%" src="images/1.jpg" alt="JavaScript Pro"></a>
+                        </td>
+                    </tr>
+                    <tr> <!-- advertisement item -->
+                        <td class="advertisement-item">
+                            <a href="https://www.coursera.org/projects/getting-started-cascading-style-sheet" target="_blank"><img width="100%" src="images/2.jpg" alt="CSS"></a>
+                        </td>
+                    </tr>                  
+                </table>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<hr />
+
+</body>
+
+</html>
